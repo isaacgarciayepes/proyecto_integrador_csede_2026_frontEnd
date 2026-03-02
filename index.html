@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDEP - Sistema Académico</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="login-bg"> <div id="login-screen" class="login-container">
+        <div class="login-box">
+            <div class="header-titles">
+                <h1 class="logo-text">IDEP</h1>
+                <h2 class="welcome-text">Bienvenido a <br> <span>IDEP</span></h2>
+                <h3 class="sub-title">Sistema Académico</h3>
+                <p class="instruction">Ingresa tu cuenta para ingresar</p>
+            </div>
+            
+            <div id="alert-box" class="alert-box hidden">
+                <p id="alert-text"></p>
+            </div>
+
+            <div class="form-container">
+                <div class="form-group">
+                    <label>Escribí tu email</label>
+                    <input type="email" id="email" value="usuario@Idep.edu">
+                </div>
+
+                <div class="form-group">
+                    <label>Escribí tu contraseña</label>
+                    <input type="password" id="password" placeholder="******">
+                    <a href="#" class="link-small">¿Olvidaste tu contraseña?</a>
+                </div>
+
+                <button id="btn-ingresar" class="btn-main">INGRESAR</button>
+                
+                <div class="footer-actions">
+                    <a href="#">¿Olvidaste la contraseña?</a>
+                    <button class="btn-alt">Recuperar</button>
+                </div>
+                <p class="contact-admin">¿No tienes cuenta? <a href="#">Contacta al administrador</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="dashboard-screen" class="dashboard-wrapper hidden">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-sidebar">IDEP</div>
+            </div>
+            <nav class="menu">
+                <ul>
+                    <li class="active">Mis notas</li>
+                    <li>Mi horario</li>
+                    <li>Asistencia</li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-header">
+                <h1 class="section-title">Mis Notas</h1>
+                <div class="user-profile">👤</div>
+            </header>
+
+            <section class="content-body">
+                <h2 class="course-label">Auxiliar en análisis y desarrollo de software</h2>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Materia</th>
+                                <th>Notas</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Backend I</td>
+                                <td>4.7</td>
+                                <td class="status">Aprobado</td>
+                            </tr>
+                            <tr>
+                                <td>Frontend I</td>
+                                <td>3.9</td>
+                                <td class="status">Aprobado</td>
+                            </tr>
+                            <tr>
+                                <td>Metodologías ágiles para la programación</td>
+                                <td>4.5</td>
+                                <td class="status">Aprobado</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

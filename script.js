@@ -12,7 +12,7 @@ const alertText = document.getElementById('alert-text');
 /*
 Aqui logica, creamos una funcion y bucles
 */
-function validarAcceso() {L
+function validarAcceso() {
     const emailValue = document.getElementById('email').value;
     const passValue = document.getElementById('password').value;
 // con el value tomamos la informacion que ingrese el usuario

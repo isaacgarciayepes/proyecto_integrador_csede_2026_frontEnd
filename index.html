@@ -5,97 +5,312 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IDEP - Sistema Académico</title>
     <link rel="stylesheet" href="style.css">
+    
 </head>
-<body class="login-bg"> <div id="login-screen" class="login-container">
-        <div class="login-box">
-            <div class="header-titles">
-                <h1 class="logo-text">IDEP</h1>
-                <h2 class="welcome-text">Bienvenido a <br> <span>IDEP</span></h2>
-                <h3 class="sub-title">Sistema Académico</h3>
-                <p class="instruction">Ingresa tu cuenta para ingresar</p>
-            </div>
-            
-            <div id="alert-box" class="alert-box hidden">
-                <p id="alert-text"></p>
-            </div>
 
-            <div class="form-container">
-                <div class="form-group">
-                    <label>Escribí tu email</label>
-                    <input type="email" id="email" value="usuario@Idep.edu">
-                </div>
+<!-- =====================================================================
+     NOTA PARA PERSONA 1:
+     El body empieza con clase 'login-bg' para mostrar el fondo del login.
+     Persona 2 cambiará esto dinámicamente con JS.
+===================================================================== -->
+<body class="login-bg">
 
-                <div class="form-group">
-                    <label>Escribí tu contraseña</label>
-                    <input type="password" id="password" placeholder="******">
-                    <a href="#" class="link-small">¿Olvidaste tu contraseña?</a>
-                </div>
+  <!-- ══════════════════════════════════════
+       PANTALLA 1: LOGIN
+  ══════════════════════════════════════ -->
+  <div id="login-screen" class="login-container">
+    <div class="login-card">
+      <div class="login-brand">
+        <span class="brand-badge">IDEP</span>
+        <h1>Sistema<br>Académico</h1>
+        <p>Ingresa tus credenciales para continuar</p>
+      </div>
 
-                <button id="btn-ingresar" class="btn-main">INGRESAR</button>
-                
-                <div class="footer-actions">
-                    <a href="#">¿Olvidaste la contraseña?</a>
-                    <button class="btn-alt">Recuperar</button>
-                </div>
-                <p class="contact-admin">¿No tienes cuenta? <a href="#">Contacta al administrador</a></p>
-            </div>
+      <!-- Alerta de error — la controla Persona 2 -->
+      <div id="alert-box" class="alert-box hidden">
+        <span class="alert-icon">⚠</span>
+        <p id="alert-text"></p>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Correo institucional</label>
+        <input type="email" id="email" placeholder="usuario@idep.edu" autocomplete="off">
+      </div>
+
+      <div class="form-group">
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" placeholder="••••••••">
+      </div>
+
+      <!-- Botón que escucha Persona 2 -->
+      <button id="btn-ingresar" class="btn-primary">Ingresar</button>
+
+      <p class="login-footer">
+        ¿No tienes cuenta? <a href="#">Contacta al administrador</a>
+      </p>
+    </div>
+
+    <div class="login-deco">
+      <div class="deco-circle c1"></div>
+      <div class="deco-circle c2"></div>
+      <div class="deco-circle c3"></div>
+      <div class="login-info">
+        <h2>Gestión académica<br>integral</h2>
+        <p>Consulta tus notas, horarios y más desde un solo lugar.</p>
+        <div class="login-creds">
+          <div class="cred-card">
+            <span class="cred-role">Estudiante</span>
+            <code>usuario@idep.edu / 123456</code>
+          </div>
+          <div class="cred-card">
+            <span class="cred-role">Administrador</span>
+            <code>admin@idep.edu / admin123</code>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 
-    <div id="dashboard-screen" class="dashboard-wrapper hidden">
-        <aside class="sidebar">
-            <div class="sidebar-header">
-                <div class="logo-sidebar">IDEP</div>
+  <!-- ══════════════════════════════════════
+       PANTALLA 2: DASHBOARD ESTUDIANTE
+  ══════════════════════════════════════ -->
+  <div id="dashboard-screen" class="app-shell hidden">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <span>IDEP</span>
+      </div>
+      <nav class="sidebar-nav">
+        <!-- data-section lo usa Persona 2 para la navegación -->
+        <a class="nav-item active" data-section="notas">
+          <span class="nav-icon">📊</span> Mis Notas
+        </a>
+        <a class="nav-item" data-section="horario">
+          <span class="nav-icon">🕐</span> Mi Horario
+        </a>
+        <a class="nav-item" data-section="asistencia">
+          <span class="nav-icon">✅</span> Asistencia
+        </a>
+      </nav>
+      <div class="sidebar-bottom">
+        <button id="btn-logout" class="btn-logout">
+          <span>↩</span> Cerrar sesión
+        </button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <!-- Persona 2 cambia este título según la sección activa -->
+          <h1 id="section-heading" class="page-title">Mis Notas</h1>
+          <p class="page-sub">Auxiliar en Análisis y Desarrollo de Software</p>
+        </div>
+        <div class="user-chip">
+          <div class="user-avatar">U</div>
+          <div>
+            <span class="user-name">Estudiante IDEP</span>
+            <span class="user-role-badge">Estudiante</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Sección Notas — Persona 3 llena el tbody -->
+      <section id="section-notas" class="content-section active">
+        <div class="stats-row">
+          <div class="stat-card">
+            <span class="stat-number" id="stat-materias">—</span>
+            <span class="stat-label">Materias</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number" id="stat-promedio">—</span>
+            <span class="stat-label">Promedio</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number" id="stat-aprobadas">—</span>
+            <span class="stat-label">Aprobadas</span>
+          </div>
+        </div>
+        <div class="table-card">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Materia</th>
+                <th>Nota</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody id="notas-tbody">
+              <!-- Persona 3 inserta filas aquí dinámicamente -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="section-horario" class="content-section hidden">
+        <div class="empty-state">
+          <span class="empty-icon">🕐</span>
+          <p>Horario no disponible aún.</p>
+        </div>
+      </section>
+
+      <section id="section-asistencia" class="content-section hidden">
+        <div class="empty-state">
+          <span class="empty-icon">✅</span>
+          <p>Registro de asistencia no disponible aún.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       PANTALLA 3: PANEL ADMINISTRADOR
+  ══════════════════════════════════════ -->
+  <div id="admin-screen" class="app-shell hidden">
+    <aside class="sidebar sidebar-admin">
+      <div class="sidebar-brand">
+        <span>IDEP</span>
+        <small>Admin</small>
+      </div>
+      <nav class="sidebar-nav">
+        <a class="nav-item active" data-admin-section="usuarios">
+          <span class="nav-icon">👥</span> Usuarios
+        </a>
+        <a class="nav-item" data-admin-section="notas-admin">
+          <span class="nav-icon">📝</span> Notas
+        </a>
+      </nav>
+      <div class="sidebar-bottom">
+        <button id="btn-admin-logout" class="btn-logout">
+          <span>↩</span> Cerrar sesión
+        </button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <h1 class="page-title" id="admin-heading">Gestión de Usuarios</h1>
+          <p class="page-sub">Panel de administración IDEP</p>
+        </div>
+        <div class="user-chip">
+          <div class="user-avatar admin-av">A</div>
+          <div>
+            <span class="user-name">Administrador</span>
+            <span class="user-role-badge admin-badge">Admin</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- SECCIÓN USUARIOS — Persona 3 controla esta sección -->
+      <section id="admin-section-usuarios" class="content-section active">
+        <div class="crud-toolbar">
+          <h2 class="crud-title">Listado de Usuarios</h2>
+          <button class="btn-add" id="btn-add-user">+ Nuevo Usuario</button>
+        </div>
+
+        <div id="user-form-container" class="form-card hidden">
+          <h3 id="user-form-title">Nuevo Usuario</h3>
+          <input type="hidden" id="user-form-id">
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Nombre completo</label>
+              <input type="text" id="user-nombre" placeholder="Ej: María García">
             </div>
-            <nav class="menu">
-                <ul>
-                    <li class="active">Mis notas</li>
-                    <li>Mi horario</li>
-                    <li>Asistencia</li>
-                </ul>
-            </nav>
-        </aside>
+            <div class="form-group">
+              <label>Correo institucional</label>
+              <input type="email" id="user-email" placeholder="usuario@idep.edu">
+            </div>
+            <div class="form-group">
+              <label>Contraseña</label>
+              <input type="password" id="user-password" placeholder="Mínimo 6 caracteres">
+            </div>
+            <div class="form-group">
+              <label>Rol</label>
+              <select id="user-rol">
+                <option value="estudiante">Estudiante</option>
+                <option value="docente">Docente</option>
+              </select>
+            </div>
+          </div>
+          <div id="user-form-error" class="form-error hidden"></div>
+          <div class="form-actions">
+            <button class="btn-secondary" id="btn-cancel-user">Cancelar</button>
+            <button class="btn-primary" id="btn-save-user">Guardar</button>
+          </div>
+        </div>
 
-        <main class="main-content">
-            <header class="top-header">
-                <h1 class="section-title">Mis Notas</h1>
-                <div class="user-profile">👤</div>
-            </header>
+        <div class="table-card">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Rol</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="users-tbody">
+              <!-- Persona 3 inserta filas aquí -->
+            </tbody>
+          </table>
+        </div>
+      </section>
 
-            <section class="content-body">
-                <h2 class="course-label">Auxiliar en análisis y desarrollo de software</h2>
-                <div class="table-container">
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>Materia</th>
-                                <th>Notas</th>
-                                <th>Estado</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Backend I</td>
-                                <td>4.7</td>
-                                <td class="status">Aprobado</td>
-                            </tr>
-                            <tr>
-                                <td>Frontend I</td>
-                                <td>3.9</td>
-                                <td class="status">Aprobado</td>
-                            </tr>
-                            <tr>
-                                <td>Metodologías ágiles para la programación</td>
-                                <td>4.5</td>
-                                <td class="status">Aprobado</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-        </main>
-    </div>
+      <!-- SECCIÓN NOTAS ADMIN — Persona 3 controla esta sección -->
+      <section id="admin-section-notas-admin" class="content-section hidden">
+        <div class="crud-toolbar">
+          <h2 class="crud-title">Gestión de Notas</h2>
+          <button class="btn-add" id="btn-add-nota">+ Nueva Nota</button>
+        </div>
 
-    <script src="script.js"></script>
+        <div id="nota-form-container" class="form-card hidden">
+          <h3 id="nota-form-title">Nueva Nota</h3>
+          <input type="hidden" id="nota-form-id">
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Estudiante</label>
+              <select id="nota-usuario">
+                <!-- Persona 3 llena este select dinámicamente -->
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Materia</label>
+              <input type="text" id="nota-materia" placeholder="Ej: Backend I">
+            </div>
+            <div class="form-group">
+              <label>Nota (0.0 – 5.0)</label>
+              <input type="number" id="nota-valor" placeholder="4.5" min="0" max="5" step="0.1">
+            </div>
+          </div>
+          <div id="nota-form-error" class="form-error hidden"></div>
+          <div class="form-actions">
+            <button class="btn-secondary" id="btn-cancel-nota">Cancelar</button>
+            <button class="btn-primary" id="btn-save-nota">Guardar</button>
+          </div>
+        </div>
+
+        <div class="table-card">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Estudiante</th>
+                <th>Materia</th>
+                <th>Nota</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="notas-admin-tbody">
+              <!-- Persona 3 inserta filas aquí -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Los archivos JS de Persona 2 y 3 van aquí -->
+  <script src="persona2-auth-nav.js"></script>
+  <script src="persona3-crud.js"></script>
 </body>
 </html>

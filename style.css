@@ -1,3 +1,4 @@
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
   --primary:      #0077FF;
@@ -279,3 +280,4 @@ label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-
   .topbar { padding: 20px 24px; }
   .content-section { padding: 24px; }
 }
+

@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "nombre": "Genesis Quiñonez",
+    "email": "Gquiñonez@idep.edu",
+    "password": "pass123",
+    "rol": "estudiante"
+  },
+  {
+    "id": 2,
+    "nombre": "Cristina Arbelaez",
+    "email": "carbelaez@idep.edu",
+    "password": "pass123",
+    "rol": "estudiante"
+  },
+  {
+    "id": 3,
+    "nombre": "Alejandro Mejia",
+    "email": "Amejia@idep.edu",
+    "password": "pass123",
+    "rol": "docente"
+  },
+   {
+    "id": 4,
+    "nombre": "Isaac Yepes",
+    "email": "iyepes@idep.edu",
+    "password": "pass123",
+    "rol": "docente"
+  }
+]

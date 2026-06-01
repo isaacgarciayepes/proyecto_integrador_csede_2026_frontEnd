@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "usuarioId": 1,
+    "materia": "Backend I",
+    "nota": 4.7
+  },
+  {
+    "id": 2,
+    "usuarioId": 1,
+    "materia": "Frontend I",
+    "nota": 3.9
+  },
+  {
+    "id": 3,
+    "usuarioId": 1,
+    "materia": "Metodologías ágiles para la programación",
+    "nota": 4.5
+  },
+  {
+    "id": 4,
+    "usuarioId": 2,
+    "materia": "Backend I",
+    "nota": 3.2
+  },
+  {
+    "id": 5,
+    "usuarioId": 2,
+    "materia": "Frontend I",
+    "nota": 4
+  }
+]

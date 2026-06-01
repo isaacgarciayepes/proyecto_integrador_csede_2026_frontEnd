@@ -1,36 +1,3 @@
-// =====================================================================
-//  PERSONA 3 — CRUD de Usuarios y Notas
-//  Responsabilidad:
-//    - Leer y mostrar notas del estudiante en el dashboard
-//    - CRUD completo de usuarios (admin): crear, listar, editar, eliminar
-//    - CRUD completo de notas (admin):    crear, listar, editar, eliminar
-//    - Validaciones de formularios
-//    - Persistencia en localStorage
-//
-//  DEPENDE DE (ids definidos por Persona 1 en el HTML):
-//    notas-tbody, stat-materias, stat-promedio, stat-aprobadas
-//    users-tbody, notas-admin-tbody
-//    user-form-container, nota-form-container
-//    user-form-title, nota-form-title
-//    user-form-id, nota-form-id
-//    user-nombre, user-email, user-password, user-rol
-//    nota-usuario, nota-materia, nota-valor
-//    user-form-error, nota-form-error
-//    btn-add-user, btn-cancel-user, btn-save-user
-//    btn-add-nota, btn-cancel-nota, btn-save-nota
-//
-//  SUS FUNCIONES SON LLAMADAS POR Persona 2:
-//    renderNotasEstudiante() → al hacer login como estudiante
-//    renderAdminUsers()      → al hacer login como admin y navegar a usuarios
-//    renderAdminNotas()      → al navegar a sección notas admin
-// =====================================================================
-
-
-// ─────────────────────────────────────────────────────────────
-// 1. FUNCIONES DE ACCESO AL LOCALSTORAGE
-//    Estas funciones centralizan la lectura y escritura.
-//    Así solo cambiamos un lugar si necesitamos modificar algo.
-// ─────────────────────────────────────────────────────────────
 
 // Leer el arreglo de usuarios. Si no existe, devuelve [] vacío.
 function getUsuarios() {

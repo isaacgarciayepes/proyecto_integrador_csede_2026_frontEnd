@@ -1,167 +1,32 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IDEP - Sistema Académico</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDEP - Sistema Académico</title>
+    <link rel="stylesheet" href="style.css">
+    
 </head>
-<body class="landing-body">
+
+<!-- =====================================================================
+     NOTA PARA PERSONA 1:
+     El body empieza con clase 'login-bg' para mostrar el fondo del login.
+     Persona 2 cambiará esto dinámicamente con JS.
+===================================================================== -->
+<body class="login-bg">
 
   <!-- ══════════════════════════════════════
-       PANTALLA 1: LANDING PAGE
-       — Persona 1
+       PANTALLA 1: LOGIN
   ══════════════════════════════════════ -->
-  <div id="landing-screen">
-
-    <nav class="landing-nav">
-      <div class="nav-logo">IDEP</div>
-      <div class="nav-links">
-        <a href="#sobre">Sobre nosotros</a>
-        <a href="#modulos">Módulos</a>
-        <!-- Persona 2 escucha este botón para mostrar el login -->
-        <button class="nav-btn" id="btn-ir-login">Ingresar al sistema</button>
-      </div>
-    </nav>
-
-    <section class="hero">
-      <div class="hero-deco">
-        <div class="hero-circle hc1"></div>
-        <div class="hero-circle hc2"></div>
-        <div class="hero-circle hc3"></div>
-      </div>
-      <div class="hero-content">
-        <span class="hero-tag">Sistema Académico Digital</span>
-        <h1 class="hero-title">Gestiona tu <br><em>educación</em><br> en un solo lugar</h1>
-        <p class="hero-sub">Consulta tus notas, horarios y más. Los administradores pueden gestionar usuarios y registros de forma sencilla.</p>
-        <div class="hero-btns">
-          <button class="btn-hero-main" id="btn-hero-ingresar">Ingresar al sistema</button>
-          <a href="#modulos" class="btn-hero-sec">Ver módulos</a>
-        </div>
-      </div>
-      <div class="hero-card-wrap">
-        <div class="hero-card">
-          <div class="hc-header">
-            <span class="hc-dot red"></span>
-            <span class="hc-dot yellow"></span>
-            <span class="hc-dot green"></span>
-          </div>
-          <div class="hc-body">
-            <p class="hc-label">Promedio actual</p>
-            <p class="hc-num">4.4</p>
-            <div class="hc-bar-wrap"><div class="hc-bar" style="width:88%"></div></div>
-            <div class="hc-subjects">
-              <div class="hc-subject"><span>Backend I</span><span class="hc-nota ok">4.7</span></div>
-              <div class="hc-subject"><span>Frontend I</span><span class="hc-nota ok">3.9</span></div>
-              <div class="hc-subject"><span>Metodologías ágiles</span><span class="hc-nota ok">4.5</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="sobre" id="sobre">
-      <div class="sobre-inner">
-        <div class="sobre-text">
-          <span class="section-tag">Sobre nosotros</span>
-          <h2>Una plataforma diseñada <br>para la comunidad IDEP</h2>
-          <p>El Sistema Académico IDEP nació como proyecto del equipo de Frontend 1 para centralizar la gestión académica del colegio. Permite a estudiantes consultar su rendimiento y a administradores gestionar la información de forma ágil.</p>
-          <p>Desarrollado con HTML, CSS y JavaScript puro, sin frameworks externos.</p>
-        </div>
-        <div class="sobre-stats">
-          <div class="sstat"><span class="sstat-n">2</span><span class="sstat-l">Roles de usuario</span></div>
-          <div class="sstat"><span class="sstat-n">3</span><span class="sstat-l">Módulos funcionales</span></div>
-          <div class="sstat"><span class="sstat-n">100%</span><span class="sstat-l">JavaScript vanilla</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="modulos" id="modulos">
-      <div class="modulos-inner">
-        <span class="section-tag">Módulos</span>
-        <h2>¿Qué puedes hacer en el sistema?</h2>
-        <div class="modulos-grid">
-          <div class="modulo-card">
-            <div class="mc-icon">🔐</div>
-            <h3>Login seguro</h3>
-            <p>Acceso con correo y contraseña institucional. Bloqueo automático al tercer intento fallido.</p>
-            <button class="mc-link-btn" onclick="mostrarLogin()">Ir al login →</button>
-          </div>
-          <div class="modulo-card featured">
-            <div class="mc-badge">Estudiante</div>
-            <div class="mc-icon">📊</div>
-            <h3>Mis notas</h3>
-            <p>Consulta tus calificaciones por materia, estado de aprobación y promedio general.</p>
-            <button class="mc-link-btn" onclick="mostrarLogin()">Ver mis notas →</button>
-          </div>
-          <div class="modulo-card">
-            <div class="mc-badge admin">Administrador</div>
-            <div class="mc-icon">👥</div>
-            <h3>Gestión de usuarios</h3>
-            <p>Crear, editar y eliminar usuarios del sistema con asignación de roles.</p>
-            <button class="mc-link-btn" onclick="mostrarLogin()">Panel admin →</button>
-          </div>
-          <div class="modulo-card">
-            <div class="mc-badge admin">Administrador</div>
-            <div class="mc-icon">📝</div>
-            <h3>Gestión de notas</h3>
-            <p>Registrar y editar calificaciones. Los datos se cargan desde un archivo JSON.</p>
-            <button class="mc-link-btn" onclick="mostrarLogin()">Gestionar notas →</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="credenciales">
-      <div class="cred-inner">
-        <h2>Credenciales de prueba</h2>
-        <p>Usa estas cuentas para explorar el sistema</p>
-        <div class="cred-cards">
-          <div class="cred-item">
-            <span class="cred-rol">Estudiante</span>
-            <code>usuario@idep.edu</code>
-            <code>123456</code>
-          </div>
-          <div class="cred-item">
-            <span class="cred-rol admin">Administrador</span>
-            <code>admin@idep.edu</code>
-            <code>admin123</code>
-          </div>
-        </div>
-        <button class="btn-hero-main" onclick="mostrarLogin()" style="margin-top:2rem">Ir al sistema →</button>
-      </div>
-    </section>
-
-    <footer class="landing-footer">
-      <div class="footer-inner">
-        <span class="footer-logo">IDEP</span>
-        <p>Sistema Académico · Frontend 1 · CESDE 2025</p>
-        <p>Docente: Diego Giraldo Zapata</p>
-      </div>
-    </footer>
-
-  </div>
-  <!-- FIN LANDING -->
-
-
-  <!-- ══════════════════════════════════════
-       PANTALLA 2: LOGIN
-       — Persona 1 estructura, Persona 2 lógica
-  ══════════════════════════════════════ -->
-  <div id="login-screen" class="login-container hidden">
+  <div id="login-screen" class="login-container">
     <div class="login-card">
-
-      <!-- Botón para volver a la landing — Persona 2 lo escucha -->
-      <button class="back-link" id="btn-volver-landing">← Volver al inicio</button>
-
       <div class="login-brand">
         <span class="brand-badge">IDEP</span>
         <h1>Sistema<br>Académico</h1>
         <p>Ingresa tus credenciales para continuar</p>
       </div>
 
-      <!-- Alerta — la controla Persona 2 -->
+      <!-- Alerta de error — la controla Persona 2 -->
       <div id="alert-box" class="alert-box hidden">
         <span class="alert-icon">⚠</span>
         <p id="alert-text"></p>
@@ -205,17 +70,17 @@
       </div>
     </div>
   </div>
-  <!-- FIN LOGIN -->
-
 
   <!-- ══════════════════════════════════════
-       PANTALLA 3: DASHBOARD ESTUDIANTE
-       — Persona 1 estructura, Persona 2 navegación, Persona 3 datos
+       PANTALLA 2: DASHBOARD ESTUDIANTE
   ══════════════════════════════════════ -->
   <div id="dashboard-screen" class="app-shell hidden">
     <aside class="sidebar">
-      <div class="sidebar-brand"><span>IDEP</span></div>
+      <div class="sidebar-brand">
+        <span>IDEP</span>
+      </div>
       <nav class="sidebar-nav">
+        <!-- data-section lo usa Persona 2 para la navegación -->
         <a class="nav-item active" data-section="notas">
           <span class="nav-icon">📊</span> Mis Notas
         </a>
@@ -236,6 +101,7 @@
     <main class="main-content">
       <header class="topbar">
         <div>
+          <!-- Persona 2 cambia este título según la sección activa -->
           <h1 id="section-heading" class="page-title">Mis Notas</h1>
           <p class="page-sub">Auxiliar en Análisis y Desarrollo de Software</p>
         </div>
@@ -248,6 +114,7 @@
         </div>
       </header>
 
+      <!-- Sección Notas — Persona 3 llena el tbody -->
       <section id="section-notas" class="content-section active">
         <div class="stats-row">
           <div class="stat-card">
@@ -266,10 +133,14 @@
         <div class="table-card">
           <table class="data-table">
             <thead>
-              <tr><th>Materia</th><th>Nota</th><th>Estado</th></tr>
+              <tr>
+                <th>Materia</th>
+                <th>Nota</th>
+                <th>Estado</th>
+              </tr>
             </thead>
             <tbody id="notas-tbody">
-              <!-- Persona 3 inserta filas aquí -->
+              <!-- Persona 3 inserta filas aquí dinámicamente -->
             </tbody>
           </table>
         </div>
@@ -290,12 +161,9 @@
       </section>
     </main>
   </div>
-  <!-- FIN DASHBOARD -->
-
 
   <!-- ══════════════════════════════════════
-       PANTALLA 4: PANEL ADMINISTRADOR
-       — Persona 1 estructura, Persona 2 navegación, Persona 3 CRUD
+       PANTALLA 3: PANEL ADMINISTRADOR
   ══════════════════════════════════════ -->
   <div id="admin-screen" class="app-shell hidden">
     <aside class="sidebar sidebar-admin">
@@ -333,7 +201,7 @@
         </div>
       </header>
 
-      <!-- SECCIÓN USUARIOS — Persona 3 controla -->
+      <!-- SECCIÓN USUARIOS — Persona 3 controla esta sección -->
       <section id="admin-section-usuarios" class="content-section active">
         <div class="crud-toolbar">
           <h2 class="crud-title">Listado de Usuarios</h2>
@@ -374,14 +242,21 @@
         <div class="table-card">
           <table class="data-table">
             <thead>
-              <tr><th>Nombre</th><th>Correo</th><th>Rol</th><th>Acciones</th></tr>
+              <tr>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Rol</th>
+                <th>Acciones</th>
+              </tr>
             </thead>
-            <tbody id="users-tbody"></tbody>
+            <tbody id="users-tbody">
+              <!-- Persona 3 inserta filas aquí -->
+            </tbody>
           </table>
         </div>
       </section>
 
-      <!-- SECCIÓN NOTAS ADMIN — Persona 3 controla -->
+      <!-- SECCIÓN NOTAS ADMIN — Persona 3 controla esta sección -->
       <section id="admin-section-notas-admin" class="content-section hidden">
         <div class="crud-toolbar">
           <h2 class="crud-title">Gestión de Notas</h2>
@@ -394,7 +269,9 @@
           <div class="form-grid">
             <div class="form-group">
               <label>Estudiante</label>
-              <select id="nota-usuario"></select>
+              <select id="nota-usuario">
+                <!-- Persona 3 llena este select dinámicamente -->
+              </select>
             </div>
             <div class="form-group">
               <label>Materia</label>
@@ -415,16 +292,24 @@
         <div class="table-card">
           <table class="data-table">
             <thead>
-              <tr><th>Estudiante</th><th>Materia</th><th>Nota</th><th>Estado</th><th>Acciones</th></tr>
+              <tr>
+                <th>Estudiante</th>
+                <th>Materia</th>
+                <th>Nota</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
             </thead>
-            <tbody id="notas-admin-tbody"></tbody>
+            <tbody id="notas-admin-tbody">
+              <!-- Persona 3 inserta filas aquí -->
+            </tbody>
           </table>
         </div>
       </section>
     </main>
   </div>
-  <!-- FIN ADMIN -->
 
+  <!-- Los archivos JS de Persona 2 y 3 van aquí -->
   <script src="persona2-auth-nav.js"></script>
   <script src="persona3-crud.js"></script>
 </body>

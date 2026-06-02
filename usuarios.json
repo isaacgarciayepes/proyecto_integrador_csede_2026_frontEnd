@@ -26,5 +26,13 @@
     "email": "iyepes@idep.edu",
     "password": "pass123",
     "rol": "docente"
+  },
+  {
+    "id": 2,
+    "nombre": "Juan admin",
+    "email": "jadmin@idep.edu",
+    "password": "admin123",
+    "rol": "admin"
   }
+  
 ]

@@ -1,22 +1,16 @@
 
-// ─────────────────────────────────────────────────────────────
-// 1. CREDENCIALES
-// ─────────────────────────────────────────────────────────────
+//credenciales
 const CREDENCIALES = [
   { email: "usuario@idep.edu", password: "123456",  rol: "estudiante" },
   { email: "admin@idep.edu",   password: "admin123", rol: "admin"      }
 ];
 
-// ─────────────────────────────────────────────────────────────
-// 2. VARIABLES DE ESTADO
-// ─────────────────────────────────────────────────────────────
+
 let intentos      = 0;
 const MAX_INTENTOS = 3;
 let usuarioActivo  = null;
 
-// ─────────────────────────────────────────────────────────────
-// 3. SELECTORES DEL DOM
-// ─────────────────────────────────────────────────────────────
+// dirigido al dom
 const landingScreen   = document.getElementById('landing-screen');
 const loginScreen     = document.getElementById('login-screen');
 const dashboardScreen = document.getElementById('dashboard-screen');
@@ -26,7 +20,7 @@ const alertBox        = document.getElementById('alert-box');
 const alertText       = document.getElementById('alert-text');
 
 
-// Muestra el login y oculta la landing
+// navegacion con la landing
 function mostrarLogin() {
   landingScreen.classList.add('hidden');
   loginScreen.classList.remove('hidden');
@@ -52,13 +46,12 @@ document.getElementById('btn-volver-landing').addEventListener('click', volverLa
 
 
 // ─────────────────────────────────────────────────────────────
-// 5. CARGA INICIAL CON FETCH — NOVEDAD TERCERA ENTREGA
-
+//Nueva carga con fetch
 function cargarDatosIniciales() {
 
   // Solo carga usuarios si no existen todavía en localStorage
   if (!localStorage.getItem('idep_usuarios')) {
-    fetch('data/usuarios.json')
+    fetch('usuarios.json')
       .then(function(respuesta) {
         // .json() convierte el texto del archivo a un arreglo JS
         return respuesta.json();
@@ -75,7 +68,7 @@ function cargarDatosIniciales() {
 
   // Solo carga notas si no existen todavía en localStorage
   if (!localStorage.getItem('idep_notas')) {
-    fetch('data/notas.json')
+    fetch('notas.json')
       .then(function(respuesta) {
         return respuesta.json();
       })
@@ -89,9 +82,7 @@ function cargarDatosIniciales() {
   }
 }
 
-// ─────────────────────────────────────────────────────────────
-// 6. FUNCIONES DE ALERTA
-// ─────────────────────────────────────────────────────────────
+//alerta
 function mostrarAlerta(msg) {
   alertBox.classList.remove('hidden');
   alertText.innerHTML = msg;
@@ -101,18 +92,30 @@ function ocultarAlerta() {
   alertBox.classList.add('hidden');
 }
 
-// ─────────────────────────────────────────────────────────────
-// 7. FUNCIÓN DE LOGIN — igual que segunda entrega
-// ─────────────────────────────────────────────────────────────
+
 function validarAcceso() {
   const emailVal = document.getElementById('email').value.trim();
   const passVal  = document.getElementById('password').value;
 
   console.log('--- Intento de ingreso:', emailVal);
 
-  const user = CREDENCIALES.find(
+  // Paso 1: buscar en las credenciales fijas (admin y demo)
+  let user = CREDENCIALES.find(
     function(u) { return u.email === emailVal && u.password === passVal; }
   );
+
+  
+  //  busca y Estos usuarios vienen del usuarios.json cargado con fetch()
+  if (!user) {
+    const usuariosGuardados = JSON.parse(localStorage.getItem('idep_usuarios')) || [];
+    user = usuariosGuardados.find(
+      function(u) { return u.email === emailVal && u.password === passVal; }
+    );
+    // Si lo encontró en localStorage, aseguramos que tenga rol
+    if (user && !user.rol) {
+      user.rol = 'estudiante';
+    }
+  }
 
   if (user) {
     usuarioActivo = user;
@@ -157,9 +160,7 @@ document.getElementById('password').addEventListener('keydown', function(e) {
   if (e.key === 'Enter') validarAcceso();
 });
 
-// ─────────────────────────────────────────────────────────────
-// 8. LOGOUT — vuelve a la landing en lugar de recargar
-// ─────────────────────────────────────────────────────────────
+//logout para regresar a la landing
 function logout() {
   usuarioActivo = null;
   intentos = 0;
@@ -211,7 +212,9 @@ document.querySelectorAll('[data-section]').forEach(function(link) {
   });
 });
 
-//navegacion sidebar
+// ─────────────────────────────────────────────────────────────
+// 10. NAVEGACIÓN SIDEBAR — ADMIN — igual que segunda entrega
+// ─────────────────────────────────────────────────────────────
 document.querySelectorAll('[data-admin-section]').forEach(function(link) {
   link.addEventListener('click', function(e) {
     e.preventDefault();
@@ -240,5 +243,5 @@ document.querySelectorAll('[data-admin-section]').forEach(function(link) {
   });
 });
 
-//iniciar
+//inicia
 cargarDatosIniciales();
